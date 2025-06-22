@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Iuran Warga</title>
+    <title>Detail Iuran Jeruk 2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -97,6 +97,14 @@ function formatCurrency(amount) {
     return parseInt(amount).toLocaleString('id-ID');
 }
 
+function sortDataByNewestDate(data) {
+    return data.sort((a, b) => {
+        const dateA = new Date(a.tanggal || 0);
+        const dateB = new Date(b.tanggal || 0);
+        return dateB - dateA; // Descending (newest first)
+    });
+}
+
 // 3. FUNGSI UTAMA
 async function loadData() {
     try {
@@ -107,7 +115,7 @@ async function loadData() {
         const result = await response.json();
         
         if (result.status === 'success') {
-            allData = result.data;
+            allData = sortDataByNewestDate(result.data);
             filteredData = [...allData];
             renderTable();
             updateTotal();
