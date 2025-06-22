@@ -68,6 +68,7 @@
                         <th>Iuran RW</th>
                         <th>Iuran RT</th>
                         <th>Takziyah</th>
+                        <th>Kas Gang</th>
                         <th>Lain-lain</th>
                         <th>Total</th>
                         <th>Keterangan</th>
@@ -143,6 +144,7 @@ function updateTotal() {
         acc.iuran_rw += parseInt(item.iuran_rw) || 0;
         acc.iuran_rt += parseInt(item.iuran_rt) || 0;
         acc.takziyah += parseInt(item.takziyah) || 0;
+        acc.takziyah += parseInt(item.kas) || 0;
         acc.lain_lain += parseInt(item['lain_-_lain']) || 0;
         return acc;
     }, { iuran_rw: 0, iuran_rt: 0, takziyah: 0, lain_lain: 0 });
