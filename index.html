@@ -69,6 +69,7 @@
                         <th>Iuran RT</th>
                         <th>Takziyah</th>
                         <th>Kas</th>
+                        <th>Denda</th>
                         <th>Lain-lain</th>
                         <th>Total</th>
                         <th>Keterangan</th>
@@ -145,11 +146,12 @@ function updateTotal() {
         acc.iuran_rt += parseInt(item.iuran_rt) || 0;
         acc.takziyah += parseInt(item.takziyah) || 0;
         acc.kas += parseInt(item.kas) || 0;
+        acc.denda_kb += parseInt(item.denda_kb) || 0;
         acc.lain_lain += parseInt(item['lain_-_lain']) || 0;
         return acc;
-    }, { iuran_rw: 0, iuran_rt: 0, takziyah: 0, kas: 0, lain_lain: 0 });
+    }, { iuran_rw: 0, iuran_rt: 0, takziyah: 0, kas: 0, denda_kb: 0, lain_lain: 0 });
     
-    const grandTotal = totals.iuran_rw + totals.iuran_rt + totals.takziyah + totals.kas + totals.lain_lain;
+    const grandTotal = totals.iuran_rw + totals.iuran_rt + totals.takziyah + totals.kas + totals.denda_kb + totals.lain_lain;
     
     totalElement.innerHTML = `
         Total: ${filteredData.length} data | 
@@ -157,6 +159,7 @@ function updateTotal() {
         Iuran RT: Rp${formatCurrency(totals.iuran_rt)} | 
         Takziyah: Rp${formatCurrency(totals.takziyah)} | 
         Kas: Rp${formatCurrency(totals.kas)} | 
+        Denda KB: Rp${formatCurrency(totals.denda_kb)} | 
         Lain-lain: Rp${formatCurrency(totals.lain_lain)} | 
         <strong>Grand Total: Rp${formatCurrency(grandTotal)}</strong>
     `;
@@ -168,7 +171,7 @@ function renderTable() {
     
     if (filteredData.length === 0) {
         const row = document.createElement('tr');
-        row.innerHTML = `<td colspan="13" style="text-align: center;">Tidak ada data yang ditemukan</td>`;
+        row.innerHTML = `<td colspan="14" style="text-align: center;">Tidak ada data yang ditemukan</td>`;
         tableBody.appendChild(row);
         return;
     }
@@ -177,10 +180,12 @@ function renderTable() {
         const row = document.createElement('tr');
         const lainLain = item['lain_-_lain'] || 0;
         const kas = item.kas || 0;
+        const dendaKb = item.denda_kb || 0;
         const total = (parseInt(item.iuran_rw) || 0) + 
                      (parseInt(item.iuran_rt) || 0) + 
                      (parseInt(item.takziyah) || 0) + 
                      (parseInt(kas) || 0) +
+                     (parseInt(dendaKb) || 0) +
                      (parseInt(lainLain) || 0);
         
         row.innerHTML = `
@@ -194,6 +199,7 @@ function renderTable() {
             <td style="text-align: right;">${formatCurrency(item.iuran_rt)}</td>
             <td style="text-align: right;">${formatCurrency(item.takziyah)}</td>
             <td style="text-align: right;">${formatCurrency(kas)}</td>
+            <td style="text-align: right;">${formatCurrency(dendaKb)}</td>
             <td style="text-align: right;">${formatCurrency(lainLain)}</td>
             <td style="text-align: right; font-weight: bold;">${formatCurrency(total)}</td>
             <td>${item.keterangan || ''}</td>
