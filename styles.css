@@ -165,7 +165,7 @@ header h1 {
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 900px;
+    min-width: 1200px;
 }
 
 thead {
@@ -195,7 +195,7 @@ th, td {
 th {
     background-color: var(--primary-color);
     color: white;
-    font-weight: 500;
+    font-weight: 150;
 }
 
 tr:hover {
