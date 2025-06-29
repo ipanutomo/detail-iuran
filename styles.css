@@ -205,7 +205,7 @@ tr:hover {
 td {
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 150px; /* Sesuaikan dengan kebutuhan */
+    max-width: 320px; /* Sesuaikan dengan kebutuhan */
 }
 
 footer {
