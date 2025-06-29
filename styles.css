@@ -165,7 +165,7 @@ header h1 {
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 1200px;
+    min-width: 700px;
 }
 
 thead {
