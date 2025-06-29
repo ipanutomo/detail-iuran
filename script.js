@@ -104,20 +104,20 @@ function renderTable() {
                      (parseInt(lainLain) || 0);
         
         row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${item.blok_no || ''}</td>
-            <td>${item.nama || ''}</td>
-            <td>${item.jenis_iuran || ''}</td>
-            <td>${item.periode || ''}</td>
-            <td>${formatDate(item.tanggal)}</td>
-            <td style="text-align: right;">${formatCurrency(item.iuran_rw)}</td>
-            <td style="text-align: right;">${formatCurrency(item.iuran_rt)}</td>
-            <td style="text-align: right;">${formatCurrency(item.takziyah)}</td>
-            <td style="text-align: right;">${formatCurrency(kas)}</td>
-            <td style="text-align: right;">${formatCurrency(dendaKb)}</td>
-            <td style="text-align: right;">${formatCurrency(lainLain)}</td>
-            <td style="text-align: right; font-weight: bold; color: var(--accent-color);">${formatCurrency(total)}</td>
-            <td>${item.keterangan || ''}</td>
+            <td style="width:80px;">${index + 1}</td>
+            <td style="width:100px;">${item.blok_no || ''}</td>
+            <td style="width:180px;">${item.nama || ''}</td>
+            <td style="width:180px;">${item.jenis_iuran || ''}</td>
+            <td style="width:180px;">${item.periode || ''}</td>
+            <td style="width:180px;">${formatDate(item.tanggal)}</td>
+            <td style="text-align: right; width:180px;">${formatCurrency(item.iuran_rw)}</td>
+            <td style="text-align: right; width:180px;">${formatCurrency(item.iuran_rt)}</td>
+            <td style="text-align: right; width:180px;">${formatCurrency(item.takziyah)}</td>
+            <td style="text-align: right; width:180px;">${formatCurrency(kas)}</td>
+            <td style="text-align: right; width:180px;">${formatCurrency(dendaKb)}</td>
+            <td style="text-align: right; width:180px;">${formatCurrency(lainLain)}</td>
+            <td style="text-align: right; font-weight: bold; color: var(--accent-color); width:180px;">${formatCurrency(total)}</td>
+            <td >${item.keterangan || ''}</td>
         `;
         tableBody.appendChild(row);
     });
