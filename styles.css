@@ -203,7 +203,10 @@ tr:hover {
 }
 
 td {
-    vertical-align: top;
+    white-space: nowrap; /* Mencegah text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Sesuaikan dengan kebutuhan */
 }
 
 footer {
