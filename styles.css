@@ -158,12 +158,32 @@ header h1 {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     margin-bottom: 20px;
+    max-height: 70vh; /* Tambahkan tinggi maksimum */
+    position: relative;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     min-width: 600px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Pastikan header di atas konten lain */
+}
+
+tbody {
+    display: block;
+    overflow-y: auto;
+    max-height: calc(70vh - 60px); /* Sesuaikan dengan tinggi header */
+}
+
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 th, td {
@@ -175,8 +195,6 @@ th, td {
 th {
     background-color: var(--primary-color);
     color: white;
-    position: sticky;
-    top: 0;
     font-weight: 500;
 }
 
